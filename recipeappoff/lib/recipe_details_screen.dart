@@ -15,19 +15,21 @@ class RecipeDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(recipe.name),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
+      body: SingleChildScrollView(
+      child :Padding(
+        padding: const EdgeInsets.all(20),
+        child:
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Image de la recette
             SizedBox(
-              height: 200,
+              height: 400,
               child: recipe.imagePath != null
                   ? Image.file(File(recipe.imagePath!))
                   : Text('Pas d\'image'),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 20),
             // Description de la recette
             const Text(
               'Description:',
@@ -71,6 +73,7 @@ class RecipeDetailScreen extends StatelessWidget {
               ),
           ],
         ),
+      ),
       ),
     );
   }
