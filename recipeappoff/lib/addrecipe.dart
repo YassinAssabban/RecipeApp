@@ -151,7 +151,7 @@ Future<void> pickImage() async {
                 controller: descriptionController,
                 decoration: const InputDecoration(
                   labelText: 'Description',
-                  hintText: 'Separer chaque étape par un point-virgule
+                  hintText: 'Separer chaque étape par un point-virgule',
                 ),
               ),
               const SizedBox(height: 36),
