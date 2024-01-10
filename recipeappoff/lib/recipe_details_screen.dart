@@ -35,7 +35,8 @@ class RecipeDetailScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(recipe.description),
+            Text(passerALaLigneSurPointVirgule(recipe.description)),
+            // Text(recipe.description),
             const SizedBox(height: 16),
             // Liste des ingrédients
               Column(
@@ -73,4 +74,14 @@ class RecipeDetailScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+String passerALaLigneSurPointVirgule(String input) {
+  // Diviser la chaîne en une liste de sous-chaînes sur le point-virgule
+  List<String> parties = input.split(';');
+
+  // Joindre les sous-chaînes avec des sauts de ligne
+  String resultat = parties.join('\n');
+
+  return resultat;
 }

@@ -87,7 +87,10 @@ class _HomeScreenState extends State<HomeScreen>{
                 ? Image.file(File(recipes[index].imagePath!))
                   : Image.network("https://t4.ftcdn.net/jpg/04/70/29/97/240_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg"),
                 ),
-              subtitle: Text(recipes[index].description),
+              // subtitle: Text(recipes[index].description),
+                subtitle: Text(
+                  _truncateDescription(recipes[index].description, 25), // 25 représente le nombre maximum de caractères
+                ),
                 onTap: () {
                   // Naviguer vers la vue détaillée lorsqu'un élément de la liste est cliqué
                   Navigator.push(
@@ -145,9 +148,15 @@ class _HomeScreenState extends State<HomeScreen>{
         );
     }
 
-
 }
-
+String _truncateDescription(String description, int maxLength) {
+  if (description.length <= maxLength) {
+    return description;
+  } else {
+    // Si la description est plus longue que maxLength, tronquer et ajouter "..."
+    return '${description.substring(0, maxLength)}...';
+  }
+}
 
 
 
